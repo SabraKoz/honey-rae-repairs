@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Employees.css"
 import { useParams } from "react-router-dom"
-import { getAllEmployees } from "../../services/employeeService"
+import { getEmployeeById } from "../../services/employeeService"
 
 export const EmployeeDetails = () => {
     const [employee, setEmployee] = useState({})
@@ -9,7 +9,7 @@ export const EmployeeDetails = () => {
     const { employeeId } = useParams()
 
     useEffect(() => {
-        getAllEmployees(employeeId).then(data => {
+        getEmployeeById(employeeId).then(data => {
             const employeeObj = data[0]
             setEmployee(employeeObj)
         })
